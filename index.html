@@ -30,7 +30,6 @@ overflow-x:hidden;
 
 h1,h2,h3{
 font-family:'Fraunces',serif;
-font-weight:400;
 }
 
 section{
@@ -47,13 +46,6 @@ border-bottom:1px solid var(--border);
 position:sticky;
 top:0;
 background:var(--bg);
-z-index:10;
-}
-
-.nav-logo{
-font-size:18px;
-color:white;
-text-decoration:none;
 }
 
 .nav-links{
@@ -65,29 +57,18 @@ list-style:none;
 .nav-links a{
 color:var(--muted);
 text-decoration:none;
-font-size:12px;
-letter-spacing:1px;
 }
 
 .nav-links a:hover{
 color:var(--accent);
 }
 
-.hero{
-padding-top:120px;
-}
-
 .hero h1{
 font-size:70px;
-margin-bottom:20px;
 }
 
 .hero span{
 color:var(--accent);
-}
-
-.hero p{
-color:var(--muted);
 }
 
 .section-title{
@@ -95,31 +76,11 @@ font-size:36px;
 margin-bottom:40px;
 }
 
-.grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:30px;
-}
-
 .card{
 background:var(--card);
 padding:30px;
 border-radius:10px;
 border:1px solid var(--border);
-transition:transform .2s,box-shadow .2s;
-}
-
-.card:hover{
-transform:translateY(-6px);
-box-shadow:0 10px 25px rgba(0,0,0,0.35);
-}
-
-.tag{
-display:inline-block;
-border:1px solid var(--border);
-padding:3px 10px;
-font-size:10px;
-margin:3px;
 }
 
 .dashboard{
@@ -137,42 +98,29 @@ text-align:center;
 
 .metric h3{
 font-size:34px;
-color:var(--accent);
 }
 
 .attack-chain{
 display:flex;
-flex-wrap:wrap;
 gap:20px;
+flex-wrap:wrap;
 }
 
 .attack{
 padding:15px 25px;
 background:var(--card);
 border:1px solid var(--border);
-opacity:0;
-transform:translateY(20px);
-transition:.6s;
 }
 
-.attack.visible{
-opacity:1;
-transform:translateY(0);
+.attack.active{
+border-color:var(--accent);
+box-shadow:0 0 12px rgba(0,255,166,.4);
 }
 
-.skills{
+.grid{
 display:grid;
-grid-template-columns:repeat(3,1fr);
+grid-template-columns:1fr 1fr;
 gap:30px;
-}
-
-ul{
-list-style:none;
-}
-
-.skills li{
-color:var(--muted);
-margin-bottom:10px;
 }
 
 .github-projects{
@@ -181,14 +129,21 @@ grid-template-columns:1fr 1fr;
 gap:30px;
 }
 
+#attack-map{
+width:100%;
+height:250px;
+background-image:url("https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg");
+background-size:cover;
+background-position:center;
+filter:brightness(.25);
+}
+
 footer{
-border-top:1px solid var(--border);
 text-align:center;
 padding:30px;
 color:var(--muted);
+border-top:1px solid var(--border);
 }
-
-a{color:var(--accent);}
 
 </style>
 </head>
@@ -196,21 +151,27 @@ a{color:var(--accent);}
 <body>
 
 <nav>
-<a class="nav-logo">Gowtham Revanur</a>
+<div>Gowtham Revanur</div>
 
 <ul class="nav-links">
 <li><a href="#projects">Projects</a></li>
-<li><a href="#research">Research</a></li>
 <li><a href="#skills">Skills</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
 </nav>
 
 <section class="hero">
-
 <h1>Gowtham <span>Revanur</span></h1>
-
 <p>Cybersecurity Graduate Student • Threat Detection • Secure Systems</p>
+</section>
+
+<section>
+
+<h2 class="section-title">Global Threat Activity</h2>
+
+<div class="card" style="padding:0;overflow:hidden;">
+<canvas id="attack-map"></canvas>
+</div>
 
 </section>
 
@@ -270,41 +231,21 @@ a{color:var(--accent);}
 <div class="card">
 <h3>IoT Hardware Fingerprint Authentication</h3>
 <p>Device authentication using ESP32/STM32 hardware fingerprints eliminating stored cryptographic keys.</p>
-<div>
-<span class="tag">IoT Security</span>
-<span class="tag">Embedded</span>
-<span class="tag">Cryptography</span>
-</div>
 </div>
 
 <div class="card">
-<h3>Cloud Threat Detection Platform</h3>
-<p>Security analytics backend performing anomaly detection and automated threat triage.</p>
-<div>
-<span class="tag">FastAPI</span>
-<span class="tag">Threat Detection</span>
-<span class="tag">PostgreSQL</span>
-</div>
-</div>
-
-<div class="card">
-<h3>Adversary Behavior Correlation Engine</h3>
-<p>Multi-stage attack detection system mapping events to the MITRE ATT&CK framework.</p>
-<div>
-<span class="tag">MITRE ATT&CK</span>
-<span class="tag">Security Automation</span>
-<span class="tag">Python</span>
-</div>
+<h3>AI-Driven Cloud Threat Detection</h3>
+<p>AI-powered monitoring system analyzing cloud logs and telemetry to detect anomalies and correlate multi-stage attacks.</p>
 </div>
 
 <div class="card">
 <h3>Secure Backend Authentication</h3>
-<p>RBAC-based authentication system implemented with Spring Boot and Spring Security.</p>
-<div>
-<span class="tag">Spring Security</span>
-<span class="tag">RBAC</span>
-<span class="tag">API Security</span>
+<p>RBAC authentication system built using Spring Boot and Spring Security protecting API endpoints.</p>
 </div>
+
+<div class="card">
+<h3>Enterprise Risk Analysis – Walt Disney</h3>
+<p>Performed enterprise risk assessment building a risk register and proposing mitigation strategies.</p>
 </div>
 
 </div>
@@ -319,61 +260,19 @@ a{color:var(--accent);}
 
 </section>
 
-<section id="research">
-
-<h2 class="section-title">Research</h2>
-
-<div class="card">
-
-<h3>Hardware Fingerprinting for IoT Security</h3>
-
-<p>
-Graduate research at Georgia State University developing
-device authentication systems using SRAM entropy and clock skew.
-</p>
-
-</div>
-
-</section>
-
 <section id="skills">
 
 <h2 class="section-title">Technical Skills</h2>
 
-<div class="skills">
-
-<div>
-<h3>Languages</h3>
 <ul>
 <li>Python</li>
 <li>Java</li>
 <li>C</li>
 <li>SQL</li>
-<li>Bash</li>
-</ul>
-</div>
-
-<div>
-<h3>Security Tools</h3>
-<ul>
 <li>Wireshark</li>
 <li>Splunk</li>
-<li>TCP/IP Analysis</li>
 <li>MITRE ATT&CK</li>
 </ul>
-</div>
-
-<div>
-<h3>Security Engineering</h3>
-<ul>
-<li>Threat Detection</li>
-<li>Secure Authentication</li>
-<li>IoT Security</li>
-<li>Cryptography</li>
-</ul>
-</div>
-
-</div>
 
 </section>
 
@@ -381,40 +280,106 @@ device authentication systems using SRAM entropy and clock skew.
 
 <h2 class="section-title">Contact</h2>
 
-<p>Email: <a href="mailto:gautam.revanur@gmail.com">gautam.revanur@gmail.com</a></p>
-
-<p>GitHub: <a href="https://github.com/Grevanur">github.com/Grevanur</a></p>
-
-<p>LinkedIn: <a href="https://linkedin.com/in/gowthamrevanur">linkedin.com/in/gowthamrevanur</a></p>
+<p>Email: gautam.revanur@gmail.com</p>
+<p>GitHub: github.com/Grevanur</p>
+<p>LinkedIn: linkedin.com/in/gowthamrevanur</p>
 
 </section>
 
 <footer>
-
 © 2026 Gowtham Revanur — Cybersecurity Portfolio
-
 </footer>
 
 <script>
 
-function randomMetric(id,max){
-document.getElementById(id).innerText=Math.floor(Math.random()*max);
+/* dashboard severity */
+
+function updateMetric(id,max){
+
+const value=Math.floor(Math.random()*max);
+const el=document.getElementById(id);
+
+el.innerText=value;
+
+if(value>max*0.7){el.style.color="#ff4d4d";}
+else if(value>max*0.4){el.style.color="#ffcc00";}
+else{el.style.color="#00ffa6";}
+
 }
 
 setInterval(()=>{
-randomMetric("m1",20);
-randomMetric("m2",10);
-randomMetric("m3",3);
-randomMetric("m4",5);
+updateMetric("m1",20);
+updateMetric("m2",10);
+updateMetric("m3",3);
+updateMetric("m4",5);
 },2000);
 
-const attacks=document.querySelectorAll(".attack");
 
-attacks.forEach((el,i)=>{
+/* attack chain animation */
+
+const attacks=document.querySelectorAll(".attack");
+let attackIndex=0;
+
+setInterval(()=>{
+attacks.forEach(a=>a.classList.remove("active"));
+attacks[attackIndex].classList.add("active");
+attackIndex=(attackIndex+1)%attacks.length;
+},2000);
+
+
+/* brighter cyber attack map */
+
+const canvas=document.getElementById("attack-map");
+const ctx=canvas.getContext("2d");
+
+canvas.width=canvas.offsetWidth;
+canvas.height=250;
+
+function drawAttack(){
+
+const x=Math.random()*canvas.width;
+const y=Math.random()*canvas.height;
+
+/* bright center */
+
+ctx.beginPath();
+ctx.arc(x,y,4,0,Math.PI*2);
+ctx.fillStyle="#00ffa6";
+ctx.fill();
+
+/* glow */
+
+ctx.beginPath();
+ctx.arc(x,y,12,0,Math.PI*2);
+ctx.strokeStyle="rgba(0,255,166,0.8)";
+ctx.lineWidth=2;
+ctx.stroke();
+
+/* outer radar ring */
+
+ctx.beginPath();
+ctx.arc(x,y,20,0,Math.PI*2);
+ctx.strokeStyle="rgba(0,255,166,0.3)";
+ctx.lineWidth=1;
+ctx.stroke();
+
 setTimeout(()=>{
-el.classList.add("visible");
-},i*400);
-});
+ctx.clearRect(x-25,y-25,50,50);
+},1200);
+
+}
+
+setInterval(drawAttack,120);
+
+
+/* selected github repos */
+
+const repos=[
+"linux-packet-analyzer",
+"AI-CloudThreatDetection",
+"ComputerVision",
+"Deal-or-Nodeal"
+];
 
 fetch("https://api.github.com/users/Grevanur/repos")
 .then(res=>res.json())
@@ -423,24 +388,21 @@ fetch("https://api.github.com/users/Grevanur/repos")
 const container=document.getElementById("repos");
 
 data
-.sort((a,b)=>b.stargazers_count-a.stargazers_count)
-.slice(0,6)
+.filter(repo=>repos.includes(repo.name))
 .forEach(repo=>{
 
 const div=document.createElement("div");
-
 div.className="card";
-div.style.cursor="pointer";
 
 div.innerHTML=`
 <h3>${repo.name}</h3>
-<p>${repo.description || "Security related project"}</p>
-<p>⭐ ${repo.stargazers_count}</p>
+<p>${repo.description || "Project repository"}</p>
+<div style="margin-top:10px;color:#8b949e;font-size:12px;">
+Technologies: ${repo.language || "Multiple"}
+</div>
 `;
 
-div.onclick=()=>{
-window.open(repo.html_url,"_blank");
-};
+div.onclick=()=>window.open(repo.html_url,"_blank");
 
 container.appendChild(div);
 
