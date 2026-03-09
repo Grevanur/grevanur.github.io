@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gowtham Revanur | Cybersecurity Engineer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Fraunces:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+--bg:#0d1117;
+--card:#161b22;
+--accent:#00ffa6;
+--text:#e6edf3;
+--muted:#8b949e;
+--border:#30363d;
+}
+
+body{
+font-family:'DM Mono',monospace;
+background:var(--bg);
+color:var(--text);
+line-height:1.6;
+overflow-x:hidden;
+}
+
+h1,h2,h3{
+font-family:'Fraunces',serif;
+font-weight:400;
+}
+
+section{
+max-width:1100px;
+margin:auto;
+padding:80px 20px;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 40px;
+border-bottom:1px solid var(--border);
+position:sticky;
+top:0;
+background:var(--bg);
+z-index:10;
+}
+
+.nav-logo{
+font-size:18px;
+color:white;
+text-decoration:none;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+.nav-links a{
+color:var(--muted);
+text-decoration:none;
+font-size:12px;
+letter-spacing:1px;
+}
+
+.nav-links a:hover{
+color:var(--accent);
+}
+
+.hero{
+padding-top:120px;
+}
+
+.hero h1{
+font-size:70px;
+margin-bottom:20px;
+}
+
+.hero span{
+color:var(--accent);
+}
+
+.hero p{
+color:var(--muted);
+}
+
+.section-title{
+font-size:36px;
+margin-bottom:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
+
+.card{
+background:var(--card);
+padding:30px;
+border-radius:10px;
+border:1px solid var(--border);
+transition:transform .2s,box-shadow .2s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 25px rgba(0,0,0,0.35);
+}
+
+.tag{
+display:inline-block;
+border:1px solid var(--border);
+padding:3px 10px;
+font-size:10px;
+margin:3px;
+}
+
+.dashboard{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.metric{
+background:var(--card);
+border:1px solid var(--border);
+padding:25px;
+text-align:center;
+}
+
+.metric h3{
+font-size:34px;
+color:var(--accent);
+}
+
+.attack-chain{
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+}
+
+.attack{
+padding:15px 25px;
+background:var(--card);
+border:1px solid var(--border);
+opacity:0;
+transform:translateY(20px);
+transition:.6s;
+}
+
+.attack.visible{
+opacity:1;
+transform:translateY(0);
+}
+
+.skills{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+ul{
+list-style:none;
+}
+
+.skills li{
+color:var(--muted);
+margin-bottom:10px;
+}
+
+.github-projects{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
+
+footer{
+border-top:1px solid var(--border);
+text-align:center;
+padding:30px;
+color:var(--muted);
+}
+
+a{color:var(--accent);}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<a class="nav-logo">Gowtham Revanur</a>
+
+<ul class="nav-links">
+<li><a href="#projects">Projects</a></li>
+<li><a href="#research">Research</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+
+<h1>Gowtham <span>Revanur</span></h1>
+
+<p>Cybersecurity Graduate Student • Threat Detection • Secure Systems</p>
+
+</section>
+
+<section>
+
+<h2 class="section-title">Threat Monitoring Dashboard</h2>
+
+<div class="dashboard">
+
+<div class="metric">
+<h3 id="m1">0</h3>
+<p>Suspicious Logins</p>
+</div>
+
+<div class="metric">
+<h3 id="m2">0</h3>
+<p>Brute Force Alerts</p>
+</div>
+
+<div class="metric">
+<h3 id="m3">0</h3>
+<p>Privilege Escalation</p>
+</div>
+
+<div class="metric">
+<h3 id="m4">0</h3>
+<p>Active Investigations</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">Attack Chain Simulation</h2>
+
+<div class="attack-chain">
+
+<div class="attack">Reconnaissance</div>
+<div class="attack">Brute Force</div>
+<div class="attack">Credential Access</div>
+<div class="attack">Privilege Escalation</div>
+<div class="attack">Persistence</div>
+<div class="attack">Data Exfiltration</div>
+
+</div>
+
+</section>
+
+<section id="projects">
+
+<h2 class="section-title">Security Projects</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>IoT Hardware Fingerprint Authentication</h3>
+<p>Device authentication using ESP32/STM32 hardware fingerprints eliminating stored cryptographic keys.</p>
+<div>
+<span class="tag">IoT Security</span>
+<span class="tag">Embedded</span>
+<span class="tag">Cryptography</span>
+</div>
+</div>
+
+<div class="card">
+<h3>Cloud Threat Detection Platform</h3>
+<p>Security analytics backend performing anomaly detection and automated threat triage.</p>
+<div>
+<span class="tag">FastAPI</span>
+<span class="tag">Threat Detection</span>
+<span class="tag">PostgreSQL</span>
+</div>
+</div>
+
+<div class="card">
+<h3>Adversary Behavior Correlation Engine</h3>
+<p>Multi-stage attack detection system mapping events to the MITRE ATT&CK framework.</p>
+<div>
+<span class="tag">MITRE ATT&CK</span>
+<span class="tag">Security Automation</span>
+<span class="tag">Python</span>
+</div>
+</div>
+
+<div class="card">
+<h3>Secure Backend Authentication</h3>
+<p>RBAC-based authentication system implemented with Spring Boot and Spring Security.</p>
+<div>
+<span class="tag">Spring Security</span>
+<span class="tag">RBAC</span>
+<span class="tag">API Security</span>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">Open Source Work</h2>
+
+<div class="github-projects" id="repos"></div>
+
+</section>
+
+<section id="research">
+
+<h2 class="section-title">Research</h2>
+
+<div class="card">
+
+<h3>Hardware Fingerprinting for IoT Security</h3>
+
+<p>
+Graduate research at Georgia State University developing
+device authentication systems using SRAM entropy and clock skew.
+</p>
+
+</div>
+
+</section>
+
+<section id="skills">
+
+<h2 class="section-title">Technical Skills</h2>
+
+<div class="skills">
+
+<div>
+<h3>Languages</h3>
+<ul>
+<li>Python</li>
+<li>Java</li>
+<li>C</li>
+<li>SQL</li>
+<li>Bash</li>
+</ul>
+</div>
+
+<div>
+<h3>Security Tools</h3>
+<ul>
+<li>Wireshark</li>
+<li>Splunk</li>
+<li>TCP/IP Analysis</li>
+<li>MITRE ATT&CK</li>
+</ul>
+</div>
+
+<div>
+<h3>Security Engineering</h3>
+<ul>
+<li>Threat Detection</li>
+<li>Secure Authentication</li>
+<li>IoT Security</li>
+<li>Cryptography</li>
+</ul>
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="section-title">Contact</h2>
+
+<p>Email: <a href="mailto:gautam.revanur@gmail.com">gautam.revanur@gmail.com</a></p>
+
+<p>GitHub: <a href="https://github.com/Grevanur">github.com/Grevanur</a></p>
+
+<p>LinkedIn: <a href="https://linkedin.com/in/gowthamrevanur">linkedin.com/in/gowthamrevanur</a></p>
+
+</section>
+
+<footer>
+
+© 2026 Gowtham Revanur — Cybersecurity Portfolio
+
+</footer>
+
+<script>
+
+function randomMetric(id,max){
+document.getElementById(id).innerText=Math.floor(Math.random()*max);
+}
+
+setInterval(()=>{
+randomMetric("m1",20);
+randomMetric("m2",10);
+randomMetric("m3",3);
+randomMetric("m4",5);
+},2000);
+
+const attacks=document.querySelectorAll(".attack");
+
+attacks.forEach((el,i)=>{
+setTimeout(()=>{
+el.classList.add("visible");
+},i*400);
+});
+
+fetch("https://api.github.com/users/Grevanur/repos")
+.then(res=>res.json())
+.then(data=>{
+
+const container=document.getElementById("repos");
+
+data
+.sort((a,b)=>b.stargazers_count-a.stargazers_count)
+.slice(0,6)
+.forEach(repo=>{
+
+const div=document.createElement("div");
+
+div.className="card";
+div.style.cursor="pointer";
+
+div.innerHTML=`
+<h3>${repo.name}</h3>
+<p>${repo.description || "Security related project"}</p>
+<p>⭐ ${repo.stargazers_count}</p>
+`;
+
+div.onclick=()=>{
+window.open(repo.html_url,"_blank");
+};
+
+container.appendChild(div);
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
